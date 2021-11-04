@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+<script type = "text/javascript">
+function random_house() {
+	let random_number = Math.floor(Math.random() * 4) + 1;
+
+	placeHolder = document.getElementById("placeHolder");
+
+	console.log(placeHolder.innerHTML);
+
+	if (random_number === 1) {
+		//placeholder.innerHTML = "you are a muggle get the heck away from hogwarts";
+	} else if (random_number === 2) {
+		//placeholder.innerHTML = "hey you're in slytherin";
+		document.getElementById("spinner").classList.add('text-success');
+	} else if (random_number === 3) {
+		//placeholder.innerHTML = "hey you're in ravenclaw";
+	} else if (random_number === 4) {
+		//placeholder.innerHTML = "hey you're in gryffindor";
+	} else {
+		//placeholder.innerHTML = "hey you're in hufflepuff";
+	}
+	
+
+	console.log(random_number);
+}
+
+random_house();
+</script>
+<title>home</title>
+</head>
+<body>
+<ul>
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="form.html">House Quiz</a></li>
+  <li><a href="hat.html">Sorting Hat</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Johnny_Morris_(American_football)">Wikipedia</a></li>
+</ul>
+<h1 id="placeHolder">Work In Progress</h1>
+</body>
+</html>

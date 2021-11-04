@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>which house?</title>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+<script type = "text/javascript">
+function pick_house() {
+	let s_count = 0;
+	let h_count = 0;
+	let g_count = 0;
+	let r_count = 0;
+
+	let questions = ['giant', 'people', 'house', 'ability']
+
+
+	questions.forEach(question => {
+		for (let choice = 0; choice <= 3; choice++) {
+			let option = document.getElementsByName(question)[choice];
+			if (option.checked) {
+				console.log(question, option.value);
+
+				if (option.value === "slytherin") {
+					s_count++;
+				} else if (option.value === "hufflepuff") {
+					h_count++;
+				} else if (option.value === "ravenclaw") {
+					r_count++;
+				} else {
+					g_count++;
+				}
+
+				break;
+			}
+
+			if (choice == 3) {
+				return;
+			}
+		}
+	});
+
+	chosen = document.getElementById("chosen_house");
+
+	if (s_count > h_count && s_count > g_count && s_count > r_count) {
+		chosen.innerHTML = "Hey, you're in slytherin!";
+	} else if (r_count > s_count && r_count > g_count && r_count > h_count) {
+		chosen.innerHTML = "Hey, you're in ravenclaw!";
+	} else if (g_count > s_count && g_count > h_count && g_count > r_count) {
+		chosen.innerHTML = "Hey, you're in gryffindor!";
+	} else if (g_count === s_count && g_count > h_count && g_count > r_count) {
+		chosen.innerHTML = "Hey, you're in gryffindor!";
+	} else if (g_count === r_count && g_count > s_count && g_count > h_count) {
+		chosen.innerHTML = "Hey, you're in ravenclaw!";
+	} else if (g_count === h_count && g_count > s_count && g_count > r_count) {
+		chosen.innerHTML = "Hey, you're in gryffindor!";
+	} else if (s_count === h_count && s_count > r_count && s_count > g_count) {
+		chosen.innerHTML = "Hey, you're in slytherin!";
+	} else if (s_count === r_count && s_count > h_count && s_count > g_count) {
+		chosen.innerHTML = "Hey, you're in slytherin!";
+	} else if (h_count === r_count && h_count > s_count && h_count > g_count) {
+		chosen.innerHTML = "Hey, you're in ravenclaw!";
+	} else {
+		chosen.innerHTML = "Hey, you're a muggle get away from hogwarts!";
+	}
+} 
+</script>
+</head> 
+<body style="background-color: lightblue; color: black;">
+
+<ul>
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="form.html">House Quiz</a></li>
+  <li><a href="hat.html">Sorting Hat</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Johnny_Morris_(American_football)">Wikipedia</a></li>
+</ul>
+
+<h1>which harry potter house are you in?</h1> 
+
+<h4>you come upon an evil giant what do you do?</h4>
+
+<form onsubmit="return false;">
+  <input type="radio" id="hufflepuff" name="giant" value="hufflepuff">
+  <label for="hufflepuff">run away</label><br>
+
+  <input type="radio" id="slytherin" name="giant" value="slytherin">
+  <label for="slytherin">kill the giant</label><br>
+
+  <input type="radio" id="ravenclaw" name="giant" value="ravenclaw">
+  <label for="ravenclaw">stun the giant</label><br>
+
+  <input type="radio" id="gryffindor" name="giant" value="gryffindor">
+  <label for="gryffindor">try to get the giant to the good side</label><br>
+
+<h4>who do you want to be?</h4>
+
+  <input type="radio" id="slytherin" name="people" value="slytherin">
+  <label for="slytherin">voldemort</label><br>
+
+  <input type="radio" id="hufflepuff" name="people" value="hufflepuff">
+  <label for="hufflepuff">dumbledore</label><br>
+
+  <input type="radio" id="gryffindor" name="people" value="gryffindor">
+  <label for="gryffindor">yourself as a wizard or witch</label><br>
+
+  <input type="radio" id="ravenclaw" name="people" value="ravenclaw">
+  <label for="ravenclaw">harry potter</label><br>
+
+<h4>which house do you mainly want to be in?</h4>
+
+  <input type="radio" id="slytherin" name="house" value="slytherin">
+  <label for="slytherin">slytherin</label><br>
+
+  <input type="radio" id="hufflepuff" name="house" value="hufflepuff">
+  <label for="hufflepuff">hufflepuff</label><br>
+
+  <input type="radio" id="gryffindor" name="house" value="gryffindor">
+  <label for="gryffindor">gryffindor</label><br>
+
+  <input type="radio" id="ravenclaw" name="house" value="ravenclaw">
+  <label for="ravenclaw">ravenclaw</label><br>
+
+<h4>which ability would you choose?</h4>
+
+  <input type="radio" id="ravenclaw" name="ability" value="ravenclaw">
+  <label for="ravenclaw">super smart</label><br>
+
+  <input type="radio" id="hufflepuff" name="ability" value="hufflepuff">
+  <label for="hufflepuff">super fast</label><br>
+
+  <input type="radio" id="slytherin" name="ability" value="slytherin">
+  <label for="slytherin">unique like harry potter</label><br>
+
+  <input type="radio" id="gryffindor" name="ability" value="gryffindor">
+  <label for="gryffindor">super strong</label><br>
+
+<br>
+  <input type="submit" value="submit" onclick="pick_house(); return false;">
+</form>
+
+<h1 id="chosen_house"></h1>
+
+</body>
+</html>
